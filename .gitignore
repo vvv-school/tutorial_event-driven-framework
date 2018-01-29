@@ -1,3 +1,8 @@
+*.user
+CMakeCache.txt
+CMakeFiles/
+build/
+
 # Prerequisites
 *.d
 
