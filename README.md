@@ -1,6 +1,12 @@
 # An introduction to the event-driven framework
 We introduce the following topics to understand how the event-driven framework works:
 
+### Requirements:
+_Note: if you are using the virtual machine this already done_
+
+In addition to YARP and iCubContrib you will need the **robotology/event-driven** (https://github.com/robotology/event-driven.git) library. You will also need the event-driven-data available [here](https://figshare.com/s/0abd8f18312bec15b121).
+
+
 ## The Neuromorphic iCub
 The purple iCub comes equipped with neuromorphic hardware.
 - Within each eye is an Asynchronous Time-based Image Sensor (ATIS) event-driven camera.
@@ -19,6 +25,21 @@ Event-driven data is integrated in YARP so we can do distributed event-driven se
 
 Click: for the [documentation](http://robotology.github.io/event-driven/doxygen/doc/html/index.html) for the event-driven libraries.
 Click: for the [main project page](https://github.com/robotology/event-driven).
+
+### Modules: vFramer
+
+Unlike standard cameras, there are no "images" or "frames" when using events so to visualise the camera output on a synchronous display we need to create an image frame from recent events. This means that we are going to grab all of the events within a given time window (e.g. 30ms) and create a frame. The vFramer module does this for us. 
+
+There are several command line arguments you can use in the vFramer, here is an example:
+
+```javascript
+--frameRate 30 --displays "(0 /left (AE ISO) 1 /right (AE ISO))" --height 240 --width 304
+```
+If possible vFramer will try to render frames at the given --frameRate, and the camera resolution can be set in --height and --width. The --displays argument defines how the vFramer will draw frames using the format [channel#, outportname, drawtypes] with as many tuples defined as you like. The drawtypes can also be chained such that we can draw multiple different event types layered on the same image. Order is important and some draw types are incompatible.
+
+### Modules: vPreProcess
+
+
 
 ## Tutorial
 In this tutorial we are going to:
