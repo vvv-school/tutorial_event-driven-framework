@@ -27,7 +27,7 @@ In this tutorial we are going to:
 3. See what options are available for the ``vPreProcess`` module.
 4. See what options are available for visualisation with the ``vFramer`` module.
 
+![Application Layout](https://github.com/vvv-school/tutorial_event-driven-framework/blob/master/misc/app_event-driven-framework.png "Application Layout")
 
-- Application [figure]
 
 
