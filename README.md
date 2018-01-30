@@ -22,12 +22,21 @@ Click: for the [main project page](https://github.com/robotology/event-driven).
 
 ## Tutorial
 In this tutorial we are going to:
-1. Introduce the dataset we will use in assignemnts.
-2. Introduce the typical data flow through an event-driven application.
-3. See what options are available for the ``vPreProcess`` module.
-4. See what options are available for visualisation with the ``vFramer`` module.
+- Introduce the dataset we will use in assignemnts.
+- Introduce the typical data flow through an event-driven application.
+- See what options are available for the ``vPreProcess`` module.
+- See what options are available for visualisation with the ``vFramer`` module.
 
 ![Application Layout](https://github.com/vvv-school/tutorial_event-driven-framework/blob/master/misc/app_event-driven-framework.png "Application Layout")
 
+What to do:
+1. Clone the tutorial, make and install
+2. Open a ``yarpmanager`` and load the event-driven-framework application
+3. Run all
+4. Load the vvv18-eventdriven-dataset/1 into the ``yarpdataplayer``
+5. Connect all YARP connects
+6. Compare the event-camera, traditional camera and iCub encoder values.
+7. Modify the vPreProcessing parameters.
+7. Modify the vFramer parameters
 
 
