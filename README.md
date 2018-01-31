@@ -14,11 +14,11 @@ The purple iCub comes equipped with neuromorphic hardware.
 - The frame-based cameras are connected to the _icub-head_ computer.
 - The event-based cameras are connected to the specialised _icub-zynq_ computer. This chip contains both an FPGA and an ARM CPU that are interfaced. The FPGA connects to the ATIS sensors and the CPU (running Linux) is connected on the iCub's network.
 
-## "Event" review
+## Event review
 - An event is something that happens at a precise time. The ATIS produces an event at a pixel location [u, v] given the light falling on the pixel changes (higher or lower) [p]. The event is also addressed to the left or right camera [c].
 - See [this](https://www.youtube.com/watch?v=kPCZESVfHoQ) video for a good overview of the operation of dynamic vision sensors.
 - Event cameras have: low-power, low-latency, high temporal-resolution, no frame-rate limitiations, and a compressed visual signal.
-- We want to use them in robotics for fast, long-lasting autonomous robots.
+- We want to use them towards developing fast robots with long-term autonomoy.
 
 ## Event-driven Framework with YARP
 Event-driven data is integrated in YARP so we can do distributed event-driven sensing and processing and integrate with standard iCub sensors as well as behaviour and control modules. The *zynqGrabber* is a YARP module that runs on the _icub-zynq_; it exposes the data from the event-driven cameras on a YARP port. Data is sent in packets of several thousand events wrapped in a ``yarp::os::Bottle`` which we have called an ``ev::vBottle``. Processing modules read packets of events asynchronously using callback functions on the input ports - only when data arrives is processing performed. 
@@ -27,7 +27,6 @@ Click: for the [documentation](http://robotology.github.io/event-driven/doxygen/
 Click: for the [main project page](https://github.com/robotology/event-driven).
 
 ### Modules: vFramer
-
 Unlike standard cameras, there are no "images" or "frames" when using events so to visualise the camera output on a synchronous display we need to create an image frame from recent events. This means that we are going to grab all of the events within a given time window (e.g. 30ms) and create a frame. The vFramer module does this for us. 
 
 There are several command line arguments you can use in the vFramer, here is an example:
@@ -39,7 +38,17 @@ If possible vFramer will try to render frames at the given --frameRate, and the 
 
 ### Modules: vPreProcess
 
+Pre-processing is performed on the event-stream to perform functions and filtering that is common across many modules. Available operations are:
+- mirror or flip the image
+- remove camera lens distortion
+- check event consistency (is the data valid?)
+- split a stereo stream into separate streams for each channel
+- apply salt and pepper filtering
 
+Standard options for VVV18 will be:
+```javascript
+--flipx --flipy --precheck false --pepper --temporalSize 250000 --undistort false
+```
 
 ## Tutorial
 In this tutorial we are going to:
@@ -51,11 +60,13 @@ In this tutorial we are going to:
 ![Application Layout](https://github.com/vvv-school/tutorial_event-driven-framework/blob/master/misc/app_event-driven-framework.png "Application Layout")
 
 What to do:
-1. Clone the tutorial, make and install
+1. Accept the tutorial assignment and clone the repository
+1. ``cd $ROBOT_CODE/tutorial_event-driven-framework && mkdir build && cd build && cmake ..``
+1. ``make install``
 2. Open a ``yarpmanager`` and load the event-driven-framework application
 3. Run all
 4. Load the vvv18-eventdriven-dataset/1 into the ``yarpdataplayer``
-5. Connect all YARP connects
+5. Connect all YARP port connections
 6. Compare the event-camera, traditional camera and iCub encoder values.
 7. Modify the vPreProcessing parameters.
 7. Modify the vFramer parameters
