@@ -5,6 +5,12 @@
 </dependencies>
 
 <module>
+  <name>yarpdataplayer</name>
+  <parameters> </parameters>
+  <node> localhost </node>
+</module>
+
+<module>
   <name>vPreProcess</name>
   <parameters> --flipx --flipy --temporalSize 250000</parameters>
   <node> localhost </node>
