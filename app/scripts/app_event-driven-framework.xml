@@ -48,7 +48,7 @@
 
 <module>
   <name> yarpscope </name>
-    <parameters> --remote /icub/torso/state:o --index "(0 1 2)" --x 1400 --y 0</parameters>
+    <parameters> --remote /icub/torso/state:o --index "(0 1 2)" --x 1400 --y 0 --interval 200 </parameters>
     <environment> YARP_PORT_PREFIX=/torso </environment>
     <node>localhost</node>
     <dependencies>
@@ -58,7 +58,7 @@
 
 <module>
     <name> yarpscope </name>
-    <parameters> --remote /icub/head/state:o --index "(0 1 2 3 4 5)" --x 1400 --y 600</parameters>
+    <parameters> --remote /icub/head/state:o --index "(0 1 2 3 4 5)" --x 1400 --y 600 --interval 200 </parameters>
     <environment> YARP_PORT_PREFIX=/head </environment>
     <node>localhost</node>
     <dependencies>
