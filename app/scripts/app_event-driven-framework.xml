@@ -18,7 +18,7 @@
 
 <module>
   <name>vFramer</name>
-  <parameters> --name /vFramer --frameRate 20 --displays "(0 /left (AE) 1 /right (AE))"</parameters>
+  <parameters> --name /vFramer --eventWindow 0.1 --displays "(0 /left (AE) 1 /right (AE)) --frameRate 20"</parameters>
   <node> localhost </node>
 </module>
 
