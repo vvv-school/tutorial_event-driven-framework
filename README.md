@@ -18,7 +18,7 @@ The purple iCub comes equipped with neuromorphic hardware.
 - An event is something that happens at a precise time. The ATIS produces an event at a pixel location [u, v] given the light falling on the pixel changes (higher or lower) [p]. The event is also addressed to the left or right camera [c].
 - See [this](https://www.youtube.com/watch?v=kPCZESVfHoQ) video for a good overview of the operation of dynamic vision sensors.
 - Event cameras have: low-power, low-latency, high temporal-resolution, no frame-rate limitiations, and a compressed visual signal.
-- We want to use them towards developing fast robots with long-term autonomoy.
+- We want to use them towards developing fast robots with long-term autonomy.
 
 ## Event-driven Framework with YARP
 Event-driven data is integrated in YARP so we can do distributed event-driven sensing and processing and integrate with standard iCub sensors as well as behaviour and control modules. The *zynqGrabber* is a YARP module that runs on the _icub-zynq_; it exposes the data from the event-driven cameras on a YARP port. Data is sent in packets of several thousand events wrapped in a ``yarp::os::Bottle`` which we have called an ``ev::vBottle``. Processing modules read packets of events asynchronously using callback functions on the input ports - only when data arrives is processing performed. 
