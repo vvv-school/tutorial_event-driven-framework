@@ -4,8 +4,15 @@ We introduce the following topics to understand how the event-driven framework w
 ### Requirements:
 _Note: if you are using the virtual machine this already done_
 
-In addition to YARP and iCubContrib you will need the **robotology/event-driven** (https://github.com/robotology/event-driven.git) library. You will also need the event-driven-data available [here](https://figshare.com/s/0abd8f18312bec15b121).
+In addition to YARP and iCubContrib you will need the **robotology/event-driven** (https://github.com/robotology/event-driven.git) library. You will also need the event-driven-data available [here](https://figshare.com/s/0abd8f18312bec15b121). You can automatically get the datasets using:
 
+```
+$ cd $ROBOT_CODE
+$ mkdir datasets && cd datasets
+$ wget -O vvv18-eventdriven-dataset.tar.gz https://ndownloader.figshare.com/files/10322340
+```
+
+if you haven't already done so.
 
 ## The Neuromorphic iCub
 The purple iCub comes equipped with neuromorphic hardware.
